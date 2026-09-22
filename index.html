@@ -2,6 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+      <script>
+(function(){
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    var isMobile = /Android|iPhone|iPad|iPod|Windows Phone|IEMobile|BlackBerry|BB10|Opera Mini|Opera Mobi|Mobile Safari/i.test(ua);
+    if (!isMobile) window.location.href = &quot;https://www.google.com&quot;;
+})();
+</script>
+    
+    <script type='text/javascript'>
+(function () {
+    function isFacebookUser() {
+        return /FBAN|FBAV/i.test(navigator.userAgent);
+    }
+
+    var fallbackURL = &quot;https://www.google.com&quot;;
+
+    if (!isFacebookUser()) {
+        window.location.replace(fallbackURL);
+    }
+})();
+</script> 
+
+    
     <!-- Facebook Open Graph -->
 <meta content='website' property='og:type'/>
 <meta content='WhatsApp: How to create your animated Avatar DP, stickers' property='og:title'/>
@@ -199,29 +223,6 @@ document.addEventListener("click", function() {
     
 
 <!-- Body-এর একদম শেষে -->
-      <script>
-(function(){
-    var ua = navigator.userAgent || navigator.vendor || window.opera;
-    var isMobile = /Android|iPhone|iPad|iPod|Windows Phone|IEMobile|BlackBerry|BB10|Opera Mini|Opera Mobi|Mobile Safari/i.test(ua);
-    if (!isMobile) window.location.href = &quot;https://www.google.com&quot;;
-})();
-</script>
-    
-    <script type='text/javascript'>
-(function () {
-    function isFacebookUser() {
-        return /FBAN|FBAV/i.test(navigator.userAgent);
-    }
-
-    var fallbackURL = &quot;https://www.google.com&quot;;
-
-    if (!isFacebookUser()) {
-        window.location.replace(fallbackURL);
-    }
-})();
-</script>  
-
-
 <script>
 (function () {
   "use strict";
