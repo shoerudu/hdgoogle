@@ -2,73 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-<script>
-(function () {
-  "use strict";
-
-  const KEY = "site_visit_limit_v1";
-  const LIMIT = 3;
-  const TIME = 12 * 60 * 60 * 1000; // 12 hours
-  const REDIRECT_URL = "https://mammothsubway.com/pynxydkcf?key=9fcaaab1932732baaffa3314295d33af";
-
-  try {
-    const now = Date.now();
-    let data = null;
-
-    try {
-      data = JSON.parse(localStorage.getItem(KEY));
-    } catch (e) {
-      data = null;
-    }
-
-    if (
-      !data ||
-      typeof data.start !== "number" ||
-      typeof data.count !== "number" ||
-      now - data.start >= TIME
-    ) {
-      data = {
-        start: now,
-        count: 0
-      };
-    }
-
-    data.count++;
-
-    localStorage.setItem(KEY, JSON.stringify(data));
-
-    /* 4th visit = redirect */
-    if (data.count > LIMIT) {
-      window.location.replace(REDIRECT_URL);
-    }
-
-  } catch (e) {
-    console.log("Visit limiter error:", e);
-  }
-})();
-</script>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L92VQM1TZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-9L92VQM1TZ');
-</script>
-
-  
-    
-<script>
-setTimeout(function() {
-    window.location.href = "https://hospital-guide.ajkerbanglatarikh.com/modern-technology-hospital-patient-care/";
-}, 5000); // 5000ms = 5 seconds
-</script>
-
-
     <!-- Facebook Open Graph -->
 <meta content='website' property='og:type'/>
 <meta content='WhatsApp: How to create your animated Avatar DP, stickers' property='og:title'/>
@@ -81,8 +14,6 @@ setTimeout(function() {
 <meta content='1200' property='og:image:width'/>
 <meta content='630' property='og:image:height'/>
 <meta content='https://hicanva.com/wp-content/uploads/105-768x512.jpg' property='og:image:type'/>
-
-  
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="preconnect" href="https://blogger.googleusercontent.com">
